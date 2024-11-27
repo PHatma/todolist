@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image:  url(../assets/mesh-gradient\ .png);
+    background-size: cover;
+    background-attachment: fixed;   
+    background-position: cover;
+    font-family: "Space Grotesk", sans-serif;
+}
+.title {
+    text-align: center;
+}
+
+.container {
+    width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 15px solid rgb(231, 225, 225);
+}
+
+.child {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+}
+
+.child .data {
+    width: 80%;
+    padding: 10px;
+    margin-right: 5px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    background-color: #ddd;
+    color: black;
+}
+
+.result {
+    width: 100%;
+    padding: 10px;
+    
+}
+
+
+.child button {
+    background-color: #B7DBF9;
+}
+
+.clear button {
+    background-color: red;
+}
+
+.child button ,.clear button {
+    
+    color: black;
+}
+
+.clear {
+    padding: 10px;
+}
+
+
+  

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/all.min.css">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/styles.css">
+   
+    <title>To-Do List</title>
+</head>
+<body>
+    <div class="title text-white">
+        <h1>TO-DO LIST</h1>
+    </div>
+    <!-- all to do webapp -->
+    <div class="container" id="container">
+        <!-- input data -->
+        <div class="child " id="child  ">
+            <input id="task" type="text" class="form-control me-2 mx-auto p-3" placeholder="Type...">
+            <button type="button " id="btn-add" class=" btn btn-outline-light ">Add</button>
+        </div>
+
+        
+        <!-- view data -->
+        <div class="result" id="result"></div>
+      
+        <!-- clear all data -->
+        <div class="clear " id="clear">
+            <button type="button" id="btn-clear" class="btn btn-outline-danger" >Clear</button>
+        </div>
+    </div>
+    <script src="./JS/main.js"></script>
+</body>
+</html>
