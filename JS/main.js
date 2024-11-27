@@ -9,7 +9,6 @@ let btnClear = document.getElementById("btn-clear");
 
 btnClear.style.display = "none"; 
 
-// دالة لإضافة مهمة جديدة
 function myTasks () {
     btnAdd.addEventListener("click", function () {
         if (addTask.value === "") {
@@ -17,18 +16,15 @@ function myTasks () {
         } else {
             const uniqeKey = `task-${Date.now()}`;
             window.localStorage.setItem(uniqeKey, addTask.value);
-            // طباعة المهام من جديد
             printTasks();
         } 
     }); 
 }
 
-// دالة لطباعة المهام من localStorage
 function printTasks () { 
     result.innerHTML = "";
     let hasTasks = false;
 
-    // المرور عبر جميع العناصر في localStorage وعرضها
     for (let i = 0; i < localStorage.length; i++) {
         let divCont = document.createElement("div");
         let divBtn = document.createElement("div");
@@ -36,7 +32,6 @@ function printTasks () {
         let btnDone = document.createElement("button");
         let btnDelete = document.createElement("button");
 
-        // تنسيق العناصر
         divCont.style.cssText = `padding:5px; 
         margin-bottom:10px;
         background-color: rgb(231, 225, 225); 
@@ -68,21 +63,17 @@ function printTasks () {
 
         btnDelete.innerHTML = `Delete`;
 
-        // عند النقر على زر "Done"، يتم تطبيق الخط
         btnDone.addEventListener("click", function () {
             divCont.style.textDecoration = "line-through";
         });
 
-        // الحصول على المفتاح والقيمة من localStorage
         let key = localStorage.key(i);
         let value = localStorage.getItem(key);
         viewData.innerHTML = `${i + 1} - ${value}`;
 
-        // عند النقر على زر "Delete"، يتم حذف المهمة من localStorage
         btnDelete.addEventListener("click", function () {
             window.localStorage.removeItem(key);
             divCont.remove();
-            // بعد حذف المهمة، التحقق إذا كانت هناك مهام متبقية
             checkClearButton();
         });
 
@@ -92,35 +83,27 @@ function printTasks () {
         divCont.appendChild(divBtn);
         result.appendChild(divCont);
         
-        // هناك مهام موجودة في localStorage
         hasTasks = true;
     }
 
-    // التحقق من زر "Clear"
     checkClearButton();
 
-    // مسح خانة الإدخال بعد إضافة المهمة
     addTask.value = ""; 
 }
 
-// دالة للتحقق من حالة زر "Clear"
 function checkClearButton() {
     if (localStorage.length > 0) {
-        // إظهار زر "Clear" إذا كانت هناك مهام
         btnClear.style.display = "block";
     } else {
-        // إخفاء زر "Clear" إذا كانت القائمة فارغة
         btnClear.style.display = "none";
     }
 }
 
-// عند الضغط على زر "Clear"، يتم مسح جميع المهام
 btnClear.addEventListener("click", function () {
-    localStorage.clear();  // مسح جميع البيانات المخزنة في localStorage
-    result.innerHTML = "";  // مسح العناصر من واجهة المستخدم
-    checkClearButton();  // التحقق من حالة الزر بعد المسح
+    localStorage.clear();  
+    result.innerHTML = ""; 
+    checkClearButton();  
 });
 
-// تنفيذ الدالة عند تحميل الصفحة
 myTasks();
 printTasks();
